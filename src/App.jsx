@@ -19,8 +19,8 @@ function ImageHoverContainer({ mainImgSrc, hoverImgSrc, alt }) {
 
 function App() {
   // Thay thế các URL dưới đây bằng đường dẫn ảnh của bạn (xem hướng dẫn ở cuối)
-  const mainPhotoUrl = "/hn.jpg"; // Ảnh chính
-  const hoverPhotoUrl = "/hn1.jpg"; // Ảnh hover
+  const mainPhotoUrl = "/hn1.jpg"; // Ảnh chính
+  const hoverPhotoUrl = "/hn.jpg"; // Ảnh hover
 
   return (
     <div className="app-container">
@@ -38,8 +38,6 @@ function App() {
 
           {/* Cột phải: Nội dung */}
           <div className="content-side">
-            <p className="greeting">Dear: Dochin</p>
-
             <h1 className="main-title">GRADUATION</h1>
             <div className="ceremony-title">
               <span className="star">✦</span> CEREMONY{" "}
@@ -54,14 +52,14 @@ function App() {
 
             <div className="info-grid">
               <div className="info-item">
-                <h3>Thời gian</h3>
+                <h3>TIME</h3>
                 <p>
-                  Thứ Sáu, ngày 23 tháng 5<br />
+                  Thứ Bảy, ngày 23 tháng 5<br />
                   Lúc 10:00 sáng
                 </p>
               </div>
               <div className="info-item">
-                <h3>Địa điểm</h3>
+                <h3>LOCATION</h3>
                 <p>
                   Cung Hội nghị Quốc tế Ariyana Đà Nẵng
                   <br />
