@@ -46,7 +46,7 @@ function App() {
               <span className="star">✦</span>
             </div>
 
-            <p className="for-text">for</p>
+            <p className="for-text">FOR</p>
 
             <div className="name-box">
               <h2 className="name">HỒNG NGUYÊN</h2>
@@ -71,7 +71,7 @@ function App() {
             </div>
 
             <div className="footer">
-              <p className="contact-note">"call me if you get lost"</p>
+              <p className="contact-note">"Call me if you get lost"</p>
               <p className="phone">0935 433 506</p>
             </div>
           </div>
