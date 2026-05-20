@@ -8,6 +8,10 @@
 body {
   background-color: #f0f2f5;
   font-family: "Montserrat", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
 .app-container {
@@ -16,7 +20,8 @@ body {
   align-items: center;
   gap: 40px;
   padding: 40px 20px;
-  min-height: 100vh;
+  width: 100%;
+  max-width: 1320px; /* Thêm padding cho bố cục tổng thể */
 }
 
 /* KHUNG CHỨA (MỖI TRANG LÀ 1 SLIDE) */
@@ -26,14 +31,11 @@ body {
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
-  /* Đổi từ height cố định sang tự động co giãn để không bị cắt chữ */
-  height: auto;
-  min-height: 720px;
+  height: 720px; /* Bố cục landscape không phải cuộn */
   justify-content: center;
   overflow: hidden;
   position: relative;
   width: 100%;
-  max-width: 1280px;
 }
 
 /* Trang trí góc nền */
@@ -52,12 +54,11 @@ body {
   z-index: 0;
 }
 
-/* BỐ CỤC SLIDE 1 */
+/* BỐ CỤC SLIDE 1 (CHIA ĐÔI MÀN HÌNH) */
 .horizontal-layout {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
+  grid-template-columns: 1fr 1.2fr; /* Cột phải rộng hơn một chút */
   height: 100%;
-  min-height: 720px;
   width: 100%;
   position: relative;
   z-index: 1;
@@ -67,13 +68,38 @@ body {
   height: 100%;
   overflow: hidden;
   border-right: 2px solid #eadac1;
+  position: relative;
 }
 
-.image-side img {
+/* CONTAINER HOVER ẢNH */
+.image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.portrait-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(10%) brightness(1.05); /* Tông màu ấm */
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.3s ease-in-out; /* Hiệu ứng mờ dần */
+}
+
+.img-main {
+  z-index: 1; /* Ảnh chính ở dưới */
+}
+
+.img-hover {
+  z-index: 2; /* Ảnh hover ở trên */
+  opacity: 0; /* Mặc định ẩn ảnh hover */
+}
+
+/* HIỆU ỨNG KHI DI CHUỘT QUA CONTAINER ẢNH */
+#invitation .image-container:hover .img-hover {
+  opacity: 1; /* Hiện ảnh hover */
 }
 
 .content-side {
@@ -96,17 +122,19 @@ body {
 
 .main-title {
   font-family: "Playfair Display", serif;
-  font-size: 90px;
+  font-size: 55px; /* Giảm từ 90px xuống để vừa vặn từ dài */
   font-weight: 400;
   line-height: 1;
   color: #2d2d2d;
+  letter-spacing: 2px; /* Thêm khoảng cách giữa các chữ cho thoáng */
+  white-space: nowrap; /* Ép chữ nằm trên 1 dòng, không bị rớt xuống */
 }
 
 .ceremony-title {
   font-family: "Playfair Display", serif;
   font-size: 32px;
   letter-spacing: 12px;
-  color: #d4af37;
+  color: #d4af37; /* Màu vàng Champagne */
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -223,13 +251,12 @@ body {
   margin-top: 60px;
   display: flex;
   justify-content: center;
-  gap: 30px;
-  flex-wrap: wrap;
+  gap: 40px;
 }
 
 .badge {
   background: white;
-  padding: 15px 30px;
+  padding: 20px 40px;
   border-radius: 50px;
   box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
   border: 1px solid #eadac1;
@@ -243,17 +270,20 @@ body {
   margin-right: 5px;
 }
 
-/* =========================================================
-   THÊM RESPONSIVE DÀNH CHO ĐIỆN THOẠI & MÀN HÌNH NHỎ 
-   ========================================================= */
+/* RESPONSIVE DÀNH CHO MOBILE */
 @media (max-width: 900px) {
+  .slide-container {
+    height: auto; /* Xếp dọc co giãn theo nội dung trên mobile */
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
   .horizontal-layout {
-    grid-template-columns: 1fr; /* Chuyển thành 1 cột */
-    min-height: auto;
+    grid-template-columns: 1fr; /* 1 cột trên mobile */
   }
 
   .image-side {
-    height: 400px; /* Cắt ảnh ngắn lại trên mobile */
+    height: 350px; /* Cắt ngắn ảnh trên mobile */
     border-right: none;
     border-bottom: 2px solid #eadac1;
   }
@@ -263,11 +293,11 @@ body {
   }
 
   .main-title {
-    font-size: 60px; /* Thu nhỏ chữ */
+    font-size: 40px;
   }
 
   .ceremony-title {
-    font-size: 20px;
+    font-size: 24px;
     letter-spacing: 6px;
   }
 
@@ -276,13 +306,8 @@ body {
   }
 
   .info-grid {
-    grid-template-columns: 1fr; /* Xếp thông tin theo chiều dọc */
+    grid-template-columns: 1fr;
     text-align: center;
-    gap: 20px;
-  }
-
-  .footer {
-    margin-top: 30px;
   }
 
   .secondary-content {
@@ -293,7 +318,8 @@ body {
     font-size: 36px;
   }
 
-  .thank-you-text {
-    font-size: 16px;
+  .badge-container {
+    flex-direction: column;
+    gap: 20px;
   }
 }

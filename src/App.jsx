@@ -1,17 +1,38 @@
 import React from "react";
 import "./App.css";
 
+// Component để xử lý hiệu ứng hover ảnh
+function ImageHoverContainer({ mainImgSrc, hoverImgSrc, alt }) {
+  return (
+    <div className="image-container">
+      {/* Ảnh chính */}
+      <img src={mainImgSrc} alt={alt} className="portrait-img img-main" />
+      {/* Ảnh hiện ra khi hover */}
+      <img
+        src={hoverImgSrc}
+        alt={`${alt} - hover`}
+        className="portrait-img img-hover"
+      />
+    </div>
+  );
+}
+
 function App() {
+  // Thay thế các URL dưới đây bằng đường dẫn ảnh của bạn (xem hướng dẫn ở cuối)
+  const mainPhotoUrl = "/hn.jpg"; // Ảnh chính
+  const hoverPhotoUrl = "/hn1.jpg"; // Ảnh hover
+
   return (
     <div className="app-container">
-      {/* Slide 1: Thư mời chính */}
+      {/* Slide 1: Thẻ mời chính */}
       <div className="slide-container" id="invitation">
         <div className="horizontal-layout">
-          {/* Cột trái: Hình ảnh */}
+          {/* Cột trái: Hình ảnh với hiệu ứng hover */}
           <div className="image-side">
-            <img
-              src="https://images.unsplash.com/photo-1523450001312-faa4e2e37f0f?q=80&w=800&auto=format&fit=crop"
-              alt="Graduation Portrait"
+            <ImageHoverContainer
+              mainImgSrc={mainPhotoUrl}
+              hoverImgSrc={hoverPhotoUrl}
+              alt="Hong Nguyen Graduation"
             />
           </div>
 
@@ -19,7 +40,7 @@ function App() {
           <div className="content-side">
             <p className="greeting">Dear: Dochin</p>
 
-            <h1 className="main-title">GRAD</h1>
+            <h1 className="main-title">GRADUATION</h1>
             <div className="ceremony-title">
               <span className="star">✦</span> CEREMONY{" "}
               <span className="star">✦</span>
@@ -42,7 +63,7 @@ function App() {
               <div className="info-item">
                 <h3>Địa điểm</h3>
                 <p>
-                  Cung Hội nghị Ariyana
+                  Cung Hội nghị Quốc tế Ariyana Đà Nẵng
                   <br />
                   107 Võ Nguyên Giáp, Đà Nẵng
                 </p>
