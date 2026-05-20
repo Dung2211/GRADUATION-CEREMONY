@@ -19,8 +19,8 @@ function ImageHoverContainer({ mainImgSrc, hoverImgSrc, alt }) {
 
 function App() {
   // Thay thế các URL dưới đây bằng đường dẫn ảnh của bạn (xem hướng dẫn ở cuối)
-  const mainPhotoUrl = "/hn.jpg"; // Ảnh chính
-  const hoverPhotoUrl = "/hn1.jpg"; // Ảnh hover
+  const mainPhotoUrl = "/hn1.jpg"; // Ảnh chính
+  const hoverPhotoUrl = "/hn.jpg"; // Ảnh hover
 
   return (
     <div className="app-container">
