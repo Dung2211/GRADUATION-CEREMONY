@@ -1,0 +1,299 @@
+/* THIẾT LẬP CƠ BẢN */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f2f5;
+  font-family: "Montserrat", sans-serif;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 20px;
+  min-height: 100vh;
+}
+
+/* KHUNG CHỨA (MỖI TRANG LÀ 1 SLIDE) */
+.slide-container {
+  background-color: #fffdf9; /* Màu kem sáng */
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  /* Đổi từ height cố định sang tự động co giãn để không bị cắt chữ */
+  height: auto;
+  min-height: 720px;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 1280px;
+}
+
+/* Trang trí góc nền */
+.slide-container::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.1) 0%,
+    transparent 70%
+  );
+  z-index: 0;
+}
+
+/* BỐ CỤC SLIDE 1 */
+.horizontal-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  height: 100%;
+  min-height: 720px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.image-side {
+  height: 100%;
+  overflow: hidden;
+  border-right: 2px solid #eadac1;
+}
+
+.image-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(10%) brightness(1.05); /* Tông màu ấm */
+}
+
+.content-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px;
+  text-align: center;
+  background: linear-gradient(135deg, #fffdf9 0%, #faf6ee 100%);
+}
+
+/* TYPOGRAPHY (CHỮ & FONT) */
+.greeting {
+  font-size: 18px;
+  letter-spacing: 4px;
+  color: #8d7b68;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.main-title {
+  font-family: "Playfair Display", serif;
+  font-size: 90px;
+  font-weight: 400;
+  line-height: 1;
+  color: #2d2d2d;
+}
+
+.ceremony-title {
+  font-family: "Playfair Display", serif;
+  font-size: 32px;
+  letter-spacing: 12px;
+  color: #d4af37;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+
+.star {
+  font-size: 20px;
+}
+
+.for-text {
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  font-size: 24px;
+  color: #8d7b68;
+  margin-bottom: 40px;
+}
+
+.name-box {
+  border-top: 1px solid #eadac1;
+  border-bottom: 1px solid #eadac1;
+  padding: 20px 0;
+  margin-bottom: 40px;
+}
+
+.name {
+  font-size: 42px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  color: #1a1a1a;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  text-align: left;
+}
+
+.info-item h3 {
+  font-size: 14px;
+  color: #d4af37;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.info-item p {
+  font-size: 16px;
+  color: #4a4a4a;
+  line-height: 1.4;
+}
+
+.footer {
+  margin-top: 50px;
+  border-top: 1px dashed #eadac1;
+  padding-top: 20px;
+}
+
+.contact-note {
+  font-style: italic;
+  color: #8d7b68;
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.phone {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #1a1a1a;
+}
+
+/* SLIDE 2: LỜI CẢM ƠN */
+.secondary-slide {
+  background: linear-gradient(to bottom, #fffdf9, #faf6ee);
+}
+
+.secondary-content {
+  padding: 100px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.icon-grad {
+  font-size: 60px;
+  color: #d4af37;
+  margin-bottom: 30px;
+}
+
+.thank-you-title {
+  font-family: "Playfair Display", serif;
+  font-size: 50px;
+  color: #2d2d2d;
+}
+
+.gold-line {
+  height: 2px;
+  width: 60px;
+  background-color: #d4af37;
+  margin: 20px auto;
+}
+
+.thank-you-text {
+  font-size: 20px;
+  line-height: 1.8;
+  color: #4a4a4a;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.badge-container {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: white;
+  padding: 15px 30px;
+  border-radius: 50px;
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.1);
+  border: 1px solid #eadac1;
+  font-size: 16px;
+  color: #4a4a4a;
+}
+
+.badge-title {
+  color: #d4af37;
+  font-weight: 600;
+  margin-right: 5px;
+}
+
+/* =========================================================
+   THÊM RESPONSIVE DÀNH CHO ĐIỆN THOẠI & MÀN HÌNH NHỎ 
+   ========================================================= */
+@media (max-width: 900px) {
+  .horizontal-layout {
+    grid-template-columns: 1fr; /* Chuyển thành 1 cột */
+    min-height: auto;
+  }
+
+  .image-side {
+    height: 400px; /* Cắt ảnh ngắn lại trên mobile */
+    border-right: none;
+    border-bottom: 2px solid #eadac1;
+  }
+
+  .content-side {
+    padding: 40px 20px;
+  }
+
+  .main-title {
+    font-size: 60px; /* Thu nhỏ chữ */
+  }
+
+  .ceremony-title {
+    font-size: 20px;
+    letter-spacing: 6px;
+  }
+
+  .name {
+    font-size: 32px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr; /* Xếp thông tin theo chiều dọc */
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer {
+    margin-top: 30px;
+  }
+
+  .secondary-content {
+    padding: 60px 20px;
+  }
+
+  .thank-you-title {
+    font-size: 36px;
+  }
+
+  .thank-you-text {
+    font-size: 16px;
+  }
+}
